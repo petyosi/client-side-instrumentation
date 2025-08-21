@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(
       new URL(process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT!),
       {
-        headers: requestHeaders,
+        request: { headers: requestHeaders, }
       },
     );
   }
